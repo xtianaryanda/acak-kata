@@ -11,6 +11,18 @@ $diff = $_SESSION['difficulty'];
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div id="status-bar">
+            <?php
+            if (isset($_SESSION['lives'])) {
+                $lives = $_SESSION['lives'];
+                echo "Lives: $lives <br>";
+            }
+            if (isset($_SESSION['score'])) {
+                $score = $_SESSION['score'];
+                echo "Score: $score";
+            }
+            ?>
+        </div>
         <div id="shuffle-container">
             <p id="shuffledword">
             <?php
@@ -47,7 +59,7 @@ $diff = $_SESSION['difficulty'];
         <!-- Form untuk membaca input user -->
         <div id="form-container">
             <form action="acakkata.php" method="post">
-                <input type="text" name="answer" placeholder="Jawaban Anda"><br><br>
+                <input type="text" name="answer" placeholder="Jawaban Anda" autofocus><br><br>
                 <input type="submit" name="submit" value="Tebak">
             </form>
         </div>
